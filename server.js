@@ -2,6 +2,8 @@ const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 
+const tools = require('./tools.js');
+
 const PORT = 5000;
 const contentUrl = './comments.json';
 
@@ -11,11 +13,16 @@ var io = require('socket.io')(server);
 
 app.use(cors())
 
-io.on('connection', function(socket){
+io.on('connection', socket => {
 
-	const comments = JSON.parse(fs.readFileSync(contentUrl));
+	const comments = tools.loadJson(contentUrl).data;
+
 	socket.emit('connection', comments);
-    console.log('Client connected');
+	console.log('Client connected');
+
+	io.on('newComment', comment => {
+		console.log(comment);
+	})
 });
 
 server.listen(PORT);
