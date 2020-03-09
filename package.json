@@ -1,0 +1,30 @@
+{
+  "name": "mybackend",
+  "version": "1.0.0",
+  "description": "Backend for mySite",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "^0.0.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0"
+  },
+  "scripts": {
+    "test": "node test/tools.test.js && node test/comment.test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaptisteMahe/myBackend.git"
+  },
+  "author": "Baptiste Mahe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaptisteMahe/myBackend/issues"
+  },
+  "homepage": "https://github.com/BaptisteMahe/myBackend#readme"
+}
